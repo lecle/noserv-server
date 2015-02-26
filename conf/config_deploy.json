@@ -1,0 +1,86 @@
+{
+    "mongodb":{
+        "host":"127.0.0.1",
+        "port":27017,
+        "db":"noservdb",
+        "username":"",
+        "password":""
+    },
+    "server":{
+        "url":"http://noserv.io:2337",
+        "port":2337
+    },
+    "processType":"single",
+    "serverType":"standalone",
+    "logDir":"/logs",
+    "fileDir":"/public/files",
+    "managerDirection":{"ip" : "127.0.0.1", "port" : 8080},
+    "serviceList":{
+        "MANAGER": {
+            "serviceName": "MANAGER",
+            "moduleName": "lecle/managerservice",
+            "status": "off"
+        },
+        "HTTP": {
+            "serviceName": "HTTP",
+            "moduleName": "lecle/httpservice",
+            "status": "off",
+            "next": "NOSERVGATEWAY"
+        },
+        "LOG": {
+            "serviceName": "LOG",
+            "moduleName": "lecle/logservice",
+            "status": "off"
+        },
+        "MONGODB": {
+            "serviceName": "MONGODB",
+            "moduleName": "lecle/mongodbservice",
+            "status": "off"
+        },
+        "NOSERVGATEWAY": {
+            "serviceName": "NOSERVGATEWAY",
+            "moduleName": "lecle/noservgatewayservice",
+            "status": "off"
+        },
+        "ANALYTICS": {
+            "serviceName": "ANALYTICS",
+            "moduleName": "lecle/analyticsservice",
+            "status": "off"
+        },
+        "APPS": {
+            "serviceName": "APPS",
+            "moduleName": "lecle/appsservice",
+            "status": "off"
+        },
+        "USERS": {
+            "serviceName": "USERS",
+            "moduleName": "lecle/usersservice",
+            "status": "off"
+        },
+        "CLASSES": {
+            "serviceName": "CLASSES",
+            "moduleName": "lecle/classesservice",
+            "status": "off"
+        },
+        "INSTALLATIONS": {
+            "serviceName": "INSTALLATIONS",
+            "moduleName": "lecle/installationsservice",
+            "status": "off"
+        },
+        "FILES": {
+            "serviceName": "FILES",
+            "moduleName": "lecle/filesservice",
+            "status": "off"
+        },
+        "PUSH": {
+            "serviceName": "PUSH",
+            "moduleName": "lecle/pushservice",
+            "status": "off"
+        },
+        "AUTH": {
+            "serviceName": "AUTH",
+            "moduleName": "lecle/authservice",
+            "status": "off"
+        }
+    }
+}

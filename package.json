@@ -1,0 +1,32 @@
+{
+  "name": "noserv-server",
+  "version": "0.0.1",
+  "description": "noserv.io server",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require test/support/env --recursive --timeout 30000",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive --timeout 30000 --require test/support/env --reporter dot test/",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --recursive --timeout 30000 --require test/support/env --reporter spec test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lecle/noserv-server.git"
+  },
+  "keywords": [
+    "noserv"
+  ],
+  "author": "Daesun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lecle/noserv-server/issues"
+  },
+  "homepage": "https://github.com/lecle/noserv-server",
+  "dependencies": {
+    "assert": "^1.2.0",
+    "istanbul": "^0.3.5",
+    "mocha": "~1.21.4",
+    "mscontainer": "git://github.com/lecle/mscontainer",
+    "request": "^2.53.0",
+    "restify": "^2.8.5"
+  }
+}
