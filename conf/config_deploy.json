@@ -7,14 +7,18 @@
         "password":""
     },
     "server":{
-        "url":"http://noserv.io:2337",
-        "port":2337
+        "url":"https://api.noserv.io",
+        "port":443
     },
     "processType":"single",
     "serverType":"standalone",
     "logDir":"/logs",
     "fileDir":"/public/files",
     "managerDirection":{"ip" : "127.0.0.1", "port" : 8080},
+    "ssl" : {
+        "key" : "/etc/ssl/noserv/noservapi.key",
+        "certificate" : "/etc/ssl/noserv/noservapiserver.crt"
+    },
     "serviceList":{
         "MANAGER": {
             "serviceName": "MANAGER",
