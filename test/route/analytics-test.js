@@ -30,6 +30,18 @@ describe('analytics-route', function() {
     });
 
 
+    describe('add', function() {
+        it('should add without error', function(done) {
+
+            // app을 하나 추가해보고 뒤에 find가 오류 없으면 정상 등록 된것으로 본다.
+            client.post('/1/apps', {appname:'test2'}, function (err, req, res, obj) {
+
+                assert.equal(201, res.statusCode);
+                done(err);
+            });
+        });
+    });
+
     describe('find', function() {
         it('should find without error', function(done) {
 
