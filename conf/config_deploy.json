@@ -19,6 +19,7 @@
         "key" : "/etc/ssl/noserv/noservapi.key",
         "certificate" : "/etc/ssl/noserv/noservapiserver.crt"
     },
+    "mainPage" : "http://www.noserv.io/wordpress/",
     "serviceList":{
         "MANAGER": {
             "serviceName": "MANAGER",
