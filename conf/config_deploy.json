@@ -17,7 +17,8 @@
     "managerDirection":{"ip" : "127.0.0.1", "port" : 8080},
     "ssl" : {
         "key" : "/etc/ssl/noserv/noservapi.key",
-        "certificate" : "/etc/ssl/noserv/noservapiserver.crt"
+        "certificate" : "/etc/ssl/noserv/noservapiserver.crt",
+        "ca" : "/etc/ssl/noserv/GandiStandardSSLCA2.pem"
     },
     "mainPage" : "http://www.noserv.io/wordpress/",
     "serviceList":{
