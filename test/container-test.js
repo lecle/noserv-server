@@ -8,7 +8,7 @@ describe('container', function() {
             // manager service load
             container.init('', '', function(err) {
 
-                setTimeout(done, 25000);
+                setTimeout(done, 20000);
             });
         });
 
