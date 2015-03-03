@@ -6,7 +6,7 @@
         "username":"",
         "password":""
     },
-    "httpServer":{
+    "server":{
         "url":"http://localhost:3337",
         "port":3337
     },
