@@ -81,6 +81,11 @@
             "serviceName": "AUTH",
             "moduleName": "lecle/authservice",
             "status": "off"
+        },
+        "FUNCTIONS": {
+            "serviceName": "FUNCTIONS",
+            "moduleName": "lecle/functionsservice",
+            "status": "off"
         }
     }
 }
