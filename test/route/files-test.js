@@ -25,7 +25,7 @@ describe('files-route', function() {
         it('should create without error', function(done) {
 
             var options = {
-                url: 'http://localhost:3337/1/files',
+                url: 'http://localhost:3337/1/files/test.txt',
                 headers: {
                     'X-Noserv-Session-Token' : 'supertoken',
                     'X-Noserv-Application-Id' : 'supertoken'
@@ -86,7 +86,7 @@ describe('files-route', function() {
         it('should delete without error', function(done) {
 
             var options = {
-                url: 'http://localhost:3337/1/files/testfile.txt',
+                url: 'http://localhost:3337/1/files/test.txt',
                 headers: {
                     'X-Noserv-Session-Token' : 'supertoken',
                     'X-Noserv-Application-Id' : 'supertoken',

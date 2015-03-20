@@ -13,7 +13,11 @@
     "processType":"single",
     "serverType":"standalone",
     "logDir":"/logs",
-    "fileDir":"/public/files",
+    "file" : {
+        "type" : "local",
+        "path" : "/public/files",
+        "baseUrl" : "http://localhost:3337"
+    },
     "managerDirection":{"ip" : "127.0.0.1", "port" : 8080},
     "ssl" : {
         "key" : "/etc/ssl/noserv/noservapi.key",

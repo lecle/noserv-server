@@ -13,6 +13,11 @@
     "processType":"single",
     "serverType":"standalone",
     "logDir":"/logs",
+    "file" : {
+        "type" : "local",
+        "path" : "/public/files",
+        "baseUrl" : "http://localhost:3337"
+    },
     "fileDir":"/public/files",
     "managerDirection":{"ip" : "127.0.0.1", "port" : 8080},
     "serviceList":{
