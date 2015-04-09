@@ -6,6 +6,7 @@ var fs = require('fs');
 describe('files-route', function() {
 
     var client = null;
+    var objectId = null;
 
     before(function(done) {
         container.init('', '', function(err) {
@@ -75,6 +76,8 @@ describe('files-route', function() {
                 assert(body.url);
                 assert(body.name);
 
+                objectId = body.objectId;
+
                 done(e);
             }).form(body);
 
@@ -96,7 +99,7 @@ describe('files-route', function() {
 
             request.del(options, function (e, r, body) {
 
-                options.url = 'http://localhost:3337/1/files/base64.txt';
+                options.url = 'http://localhost:3337/1/files/' + objectId;
 
                 request.del(options, function (e, r, body) {
 
