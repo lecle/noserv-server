@@ -121,4 +121,44 @@ describe('functions-route', function() {
             });
         });
     });
+
+    describe('use sdk', function() {
+        it('should use sdk without error', function(done) {
+
+            var func = "            var Score = new Noserv.Object('Score', '');\
+            var score = Score.extend();\
+\
+            score.set('name', req.data.name);\
+            score.set('선수', '선수1');\
+console.log('before save');\
+            score.save(score, {\
+                success: function (data) {\
+console.log('success', data);\
+                    res.send({objectId : data.objectId});\
+                },\
+                error: function (data, error) {\
+\
+                    res.error(error);\
+                }\
+            });";
+
+            client.post('/1/functions', {name:'addScore', type:'function', function:func}, function (err, req, res, obj) {
+
+                if(err)
+                    return done(err);
+
+                assert.equal(201, res.statusCode);
+                assert(obj.createdAt);
+                assert(obj.objectId);
+
+                client.post('/1/functions/addScore', {name:'testvalue'}, function (err, req, res, obj) {
+
+                    assert.equal(200, res.statusCode);
+                    assert(obj.objectId);
+
+                    done(err);
+                });
+            });
+        });
+    });
 });
