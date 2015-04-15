@@ -93,7 +93,7 @@ describe('classes-route', function() {
             acl.ACL[userId] = { write : true };
 
             client.headers['X-Noserv-Master-Key'] = masterKey;
-            client.put('/1/classes/testAcl/ACL', acl, function (err, req, res, obj) {
+            client.post('/1/classes/testAcl/ACL', acl, function (err, req, res, obj) {
                 delete client.headers['X-Noserv-Master-Key'];
                 client.post('/1/classes/testAcl', {test: 'data'}, function (err, req, res, obj) {
 
@@ -110,7 +110,7 @@ describe('classes-route', function() {
             acl.ACL['*'] = { read : true };
 
             client.headers['X-Noserv-Master-Key'] = masterKey;
-            client.put('/1/classes/testAcl/ACL', acl, function (err, req, res, obj) {
+            client.post('/1/classes/testAcl/ACL', acl, function (err, req, res, obj) {
                 delete client.headers['X-Noserv-Master-Key'];
                 client.post('/1/classes/testAcl', {test: 'data'}, function (err, req, res, obj) {
 
@@ -127,7 +127,7 @@ describe('classes-route', function() {
             acl.ACL['*'] = { write : true };
 
             client.headers['X-Noserv-Master-Key'] = masterKey;
-            client.put('/1/classes/testAcl/ACL', acl, function (err, req, res, obj) {
+            client.post('/1/classes/testAcl/ACL', acl, function (err, req, res, obj) {
                 delete client.headers['X-Noserv-Master-Key'];
                 client.post('/1/classes/testAcl', {test: 'data'}, function (err, req, res, obj) {
 
@@ -137,6 +137,25 @@ describe('classes-route', function() {
                 });
             });
         });
+
+        it('user master permission settings', function(done) {
+
+            var acl = {ACL:{}};
+            acl.ACL['*'] = { write : false };
+            acl.ACL[userId] = { master : true };
+
+            client.headers['X-Noserv-Master-Key'] = masterKey;
+            client.post('/1/classes/testAcl/ACL', acl, function (err, req, res, obj) {
+                delete client.headers['X-Noserv-Master-Key'];
+                client.post('/1/classes/testAcl', {test: 'data'}, function (err, req, res, obj) {
+
+                    assert.equal(201, res.statusCode);
+
+                    done(err);
+                });
+            });
+        });
+
     });
 
     describe('read', function() {
@@ -214,6 +233,23 @@ describe('classes-route', function() {
 
                     assert.equal(403, res.statusCode);
                     done();
+                });
+            });
+        });
+
+        it('user master permission settings', function(done) {
+
+            var acl = {ACL:{}};
+            acl.ACL['*'] = { read : false };
+            acl.ACL[userId] = { master : true };
+
+            client.headers['X-Noserv-Master-Key'] = masterKey;
+            client.post('/1/classes/testAcl/ACL', acl, function (err, req, res, obj) {
+                delete client.headers['X-Noserv-Master-Key'];
+                client.get('/1/classes/testAcl', function (err, req, res, obj) {
+
+                    assert.equal(200, res.statusCode);
+                    done(err);
                 });
             });
         });
