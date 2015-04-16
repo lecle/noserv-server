@@ -2,7 +2,7 @@ var assert = require('assert');
 var container = require('../../lib/container').getInstance();
 var restify = require('restify');
 
-describe('classes-route', function() {
+describe('ACL', function() {
 
     var client = null;
     var userId = null;
@@ -11,7 +11,7 @@ describe('classes-route', function() {
     before(function(done) {
         container.init('', '', function(err) {
 
-            setTimeout(done, 30000);
+            setTimeout(done, 2000);
         });
 
         client = restify.createJsonClient({
