@@ -11,7 +11,7 @@ describe('classes-route', function() {
     before(function(done) {
         container.init('', '', function(err) {
 
-            setTimeout(done, 20000);
+            setTimeout(done, 30000);
         });
 
         client = restify.createJsonClient({
