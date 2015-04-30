@@ -86,6 +86,11 @@
             "serviceName": "FUNCTIONS",
             "moduleName": "lecle/functionsservice",
             "status": "off"
+        },
+        "SCHEDULE": {
+            "serviceName": "SCHEDULE",
+            "moduleName": "lecle/scheduleservice",
+            "status": "off"
         }
     }
 }
