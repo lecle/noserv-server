@@ -18,7 +18,8 @@ describe('container', function() {
     describe('#log()', function() {
         it('should log without error', function(done) {
 
-            container.log('test');
+            container.log.info('test');
+            container.log.error('test');
 
             done();
         });
