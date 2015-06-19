@@ -101,6 +101,11 @@
             "serviceName": "SCHEDULE",
             "moduleName": "lecle/scheduleservice",
             "status": "off"
+        },
+        "ROLES": {
+            "serviceName": "ROLES",
+            "moduleName": "lecle/rolesservice",
+            "status": "off"
         }
     }
 }

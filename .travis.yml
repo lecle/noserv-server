@@ -4,5 +4,5 @@ node_js:
 services:
   - mongodb
 script: "npm run-script test-travis"
-before_script: "npm install lecle/managerservice lecle/httpservice lecle/logservice lecle/mongodbservice lecle/noservgatewayservice lecle/analyticsservice lecle/appsservice lecle/usersservice lecle/classesservice lecle/installationsservice lecle/filesservice lecle/pushservice lecle/authservice lecle/functionsservice lecle/scheduleservice && mkdir public && mkdir public/files"
+before_script: "npm install lecle/managerservice lecle/httpservice lecle/logservice lecle/mongodbservice lecle/noservgatewayservice lecle/analyticsservice lecle/appsservice lecle/usersservice lecle/classesservice lecle/installationsservice lecle/filesservice lecle/pushservice lecle/authservice lecle/functionsservice lecle/scheduleservice lecle/rolesservice && mkdir public && mkdir public/files"
 after_script: "npm install coveralls@2.10.0 && cat ./coverage/lcov.info | coveralls"
