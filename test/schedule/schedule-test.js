@@ -159,17 +159,61 @@ console.log('success', data);\
                             client.get('/1/schedule/' + id, function (err, req, res, obj) {
 
                                 assert.equal(200, res.statusCode);
+                                assert(obj.log);
                                 assert(obj.log[0].startedAt);
+                                assert(obj.log[0].response);
+                                assert(obj.log[0].response.objectId);
                                 done();
                             });
-
-                            done();
 
                         }, 15000);
                     });
                 });
             });
 
+        });
+    });
+
+    describe('schedule push run', function() {
+        it('should schedule push run without error', function(done) {
+
+            client.post('/1/installations', {deviceType:'ios', deviceToken:'testschedule', test:'data', channels : ['', 'test']}, function (err, req, res, obj) {
+
+                assert.equal(201, res.statusCode);
+                assert(obj.createdAt);
+                assert(obj.objectId);
+
+                client.post('/1/push', {"where":{"test":"data"}, "data":{"alert":"노섭에서 알려드립니다~~","badge":"100"}, "push_time":{$ISODate: '2015-04-29T06:18:37.027Z'}}, function (err, req, res, obj) {
+
+                    assert.equal(201, res.statusCode);
+                    assert(obj.createdAt);
+                    assert(obj.objectId);
+                    assert(obj.scheduleId);
+
+                    var pushId = obj.objectId;
+                    var scheduleId = obj.scheduleId;
+
+                    client.get('/1/push/' + pushId, function(err, req, res, obj) {
+
+                        assert.equal(200, res.statusCode);
+                        assert.equal(0, obj._sendCount);
+
+                        setTimeout(function() {
+
+                            client.get('/1/schedule/' + scheduleId, function (err, req, res, obj) {
+
+                                assert.equal(200, res.statusCode);
+                                assert(obj.log);
+                                assert(obj.log[0].index);
+                                assert(obj.log[0].response);
+                                assert.equal(1, obj.log[0].response.sendCount);
+                                done();
+                            });
+
+                        }, 15000);
+                    });
+                });
+            });
         });
     });
 });
