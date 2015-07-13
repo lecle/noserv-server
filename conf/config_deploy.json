@@ -6,6 +6,13 @@
         "username":"",
         "password":""
     },
+    "analyticsMongodb":{
+        "host":"127.0.0.1",
+        "port":27017,
+        "db":"noservdb",
+        "username":"",
+        "password":""
+    },
     "server":{
         "url":"https://api.noserv.io",
         "port":443
@@ -105,6 +112,11 @@
         "ROLES": {
             "serviceName": "ROLES",
             "moduleName": "lecle/rolesservice",
+            "status": "off"
+        },
+        "ANALYTICSDB": {
+            "serviceName": "ANALYTICSDB",
+            "moduleName": "lecle/analyticsdbservice",
             "status": "off"
         }
     }

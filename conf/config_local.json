@@ -96,6 +96,11 @@
             "serviceName": "ROLES",
             "moduleName": "lecle/rolesservice",
             "status": "off"
+        },
+        "ANALYTICSDB": {
+            "serviceName": "ANALYTICSDB",
+            "moduleName": "lecle/analyticsdbservice",
+            "status": "off"
         }
     }
 }

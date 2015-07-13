@@ -6,6 +6,13 @@
         "username":"",
         "password":""
     },
+    "analyticsMongodb":{
+        "host":"127.0.0.1",
+        "port":27017,
+        "db":"testdb2",
+        "username":"",
+        "password":""
+    },
     "server":{
         "url":"http://localhost:3337",
         "port":3337
@@ -100,6 +107,11 @@
         "ROLES": {
             "serviceName": "ROLES",
             "moduleName": "lecle/rolesservice",
+            "status": "off"
+        },
+        "ANALYTICSDB": {
+            "serviceName": "ANALYTICSDB",
+            "moduleName": "lecle/analyticsdbservice",
             "status": "off"
         }
     }
