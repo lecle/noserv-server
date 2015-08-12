@@ -51,7 +51,7 @@ describe('entities-route', function() {
 
                 var objId = obj.id;
 
-                client.put('/v1/entities/test/' + objId, {test:'updatedata', _test:'updatedata'}, function (err, req, res, obj) {
+                client.patch('/v1/entities/test/' + objId, {test:'updatedata', _test:'updatedata'}, function (err, req, res, obj) {
 
                     assert.equal(200, res.statusCode);
                     assert(obj.updatedAt);
@@ -82,7 +82,7 @@ describe('entities-route', function() {
 
                 var objId = obj.id;
 
-                client.put('/v1/entities/test/' + objId, {test:'updatedata', _test:'updatedata'}, function (err, req, res, obj) {
+                client.patch('/v1/entities/test/' + objId, {test:'updatedata', _test:'updatedata'}, function (err, req, res, obj) {
 
                     assert.equal(200, res.statusCode);
                     assert(obj.updatedAt);

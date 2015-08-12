@@ -96,7 +96,7 @@ describe('accounts-route', function() {
     describe('update', function() {
         it('should update without error', function(done) {
 
-            client.put('/v1/accounts/' + userId, {username:'test', password:'pass', phone:'010-1111-2222'}, function (err, req, res, obj) {
+            client.patch('/v1/accounts/' + userId, {username:'test', password:'pass', phone:'010-1111-2222'}, function (err, req, res, obj) {
 
                 assert.equal(200, res.statusCode);
                 done();
