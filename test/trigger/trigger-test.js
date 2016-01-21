@@ -91,7 +91,7 @@ describe('trigger-route', function() {
     describe('find', function() {
         it('should create without error', function(done) {
 
-            client.post('/1/functions', {name:'before_find', type:'function', triggerTypes:['testTrigger_before_find'], function:'req.data.query.where.a = req.data.query.where.test; res.send(req.data);'}, function (err, req, res, obj) {
+            client.post('/1/functions', {name:'before_find', type:'function', triggerTypes:['testTrigger_before_find'], function:'req.data.query.where.a = req.data.query.where.test; delete req.data.query.where.test; res.send(req.data);'}, function (err, req, res, obj) {
 
                 assert.equal(201, res.statusCode);
 
@@ -99,7 +99,7 @@ describe('trigger-route', function() {
 
                     assert.equal(201, res.statusCode);
 
-                    client.get('/1/classes/testTrigger?test=1', function (err, req, res, obj) {
+                    client.get('/1/classes/testTrigger?where={"test":1}', function (err, req, res, obj) {
 
                         assert.equal(200, res.statusCode);
                         assert.equal('OK', obj.results[0].test);
